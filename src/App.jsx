@@ -1,3 +1,6 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -15,9 +18,19 @@ export default function App() {
 
   const addItemToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
+
+    toast.success(`${product.title} added to cart!`, {
+      position: "bottom-right",
+      autoClose: 3000,
+    });
   };
   const clearCart = () => {
     setCart([]);
+
+    toast.info("Cart cleared!", {
+      position: "bottom-right",
+      autoClose: 3000,
+    });
   };
 
   useEffect(() => {
@@ -39,6 +52,7 @@ export default function App() {
 
   return (
     <>
+      <ToastContainer />
       <header className="w-full mx-auto max-w-6xl">
         <NavBar cartItems={cart} clearCart={clearCart} />
       </header>

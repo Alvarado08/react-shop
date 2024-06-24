@@ -18,7 +18,7 @@ export default function Cart({ items, clearCart }) {
       >
         <div className="card-body">
           <span className="text-lg font-bold">{items.length} items</span>
-          <span className="text-info">
+          <span className="text-secondary">
             Subtotal: ${items.reduce((a, b) => a + b.price, 0)}
           </span>
           <div className="card-actions items-center">
